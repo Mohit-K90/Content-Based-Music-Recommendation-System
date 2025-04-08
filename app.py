@@ -12,7 +12,7 @@ st.title("🎵 Your Spotify Top Tracks")
 
 client_id = "c79e5ded82a941ee9f99b45e14173c19"
 client_secret = "cc5dafaab5a048c48ee953b6e1472083"
-redirect_uri = "http://127.0.0.1:8501"
+redirect_uri = "https://content-based-music-recommendation-system-fz3khr7kwepx3nulgtcp.streamlit.app/"
 
 # Initialize session state
 if 'logged_in' not in st.session_state:
