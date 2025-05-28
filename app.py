@@ -33,7 +33,7 @@ auth_manager = SpotifyOAuth(
     client_id=client_id,
     client_secret=client_secret,
     redirect_uri=redirect_uri,
-    scope="user-top-read",
+    scope="user-top-read user-read-private user-read-email",
     cache_path=".spotifycache",
     show_dialog=True
 )
