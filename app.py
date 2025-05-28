@@ -10,8 +10,8 @@ from recommender import recommend_songs
 st.set_page_config(page_title="Spotify Top Tracks", page_icon="🎵")
 st.title("🎵 Your Spotify Top Tracks")
 
-client_id = "c79e5ded82a941ee9f99b45e14173c19"
-client_secret = "cc5dafaab5a048c48ee953b6e1472083"
+client_id = "c14460d7702246ed9853cab6b032383c"
+client_secret = "f15232bb1a54448baf60353930d29fb0"
 redirect_uri = "https://content-based-music-recommendation-system-fz3khr7kwepx3nulgtcp.streamlit.app/"
 
 # Initialize session state
