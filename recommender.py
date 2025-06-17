@@ -48,7 +48,7 @@ model.fit(final_song_vectors)
 kmeans = KMeans(n_clusters=20, random_state=42)
 clusters = kmeans.fit_predict(final_song_vectors)
 
-def recommend_songs_cluster(liked_songs, top_n=10, max_k_j=2, show_matches=True):
+def recommend_songs(liked_songs, top_n=10, max_k_j=2, show_matches=True):
     matched = []
     unmatched = []
     liked_indices = []
