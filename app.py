@@ -4,7 +4,6 @@ from spotipy.oauth2 import SpotifyOAuth
 import os
 import time
 from urllib.parse import urlparse, parse_qs
-
 from recommender import recommend_songs
 
 st.set_page_config(page_title="Spotify Top Tracks", page_icon="🎵")
