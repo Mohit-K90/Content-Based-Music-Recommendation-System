@@ -2,7 +2,7 @@
 
 A content-based music recommendation system that analyzes your Spotify listening history and suggests similar songs you might enjoy.
 
-![Demo](demo.gif) *(Replace with actual demo GIF)*
+
 
 ## Features ✨
 
