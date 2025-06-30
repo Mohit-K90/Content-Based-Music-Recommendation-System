@@ -11,7 +11,7 @@ A content-based music recommendation system that analyzes your Spotify listening
 - 🎼 Get personalized song recommendations
 - 🔊 Play 30-second song previews
 - 🎤 See artist, album, and track information
-- 🚀 Smart genre balancing (limits K/J-pop if not dominant in your taste)
+- 🚀 Smart genre balancing 
 
 ## How It Works 🛠️
 
