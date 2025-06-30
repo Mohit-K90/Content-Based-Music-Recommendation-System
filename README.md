@@ -1,92 +1,119 @@
-# Spotify Music Recommendation System
+# Spotify Top Tracks Recommender 🎵
 
-A content-based music recommender that suggests songs based on your Spotify listening history.
+A content-based music recommendation system that analyzes your Spotify listening history and suggests similar songs you might enjoy.
 
-## Features
-- View your top 10 Spotify tracks
-- Get personalized song recommendations
-- Play 30-second song previews
-- Secure Spotify login
-- Smart genre filtering
+![Demo](demo.gif) *(Replace with actual demo GIF)*
 
-## Requirements
-- Python 3.7+
-- Spotify developer account
-- Spotify Premium (for audio previews)
+## Features ✨
 
-## Installation
-1. Clone this repository:
+- 🔐 Secure Spotify OAuth login
+- 🎧 View your top 10 most-played tracks
+- 🎼 Get personalized song recommendations
+- 🔊 Play 30-second song previews
+- 🎤 See artist, album, and track information
+- 🚀 Smart genre balancing (limits K/J-pop if not dominant in your taste)
 
-git clone https://github.com/yourusername/spotify-recommender.git
-cd spotify-recommender
+## How It Works 🛠️
+
+The system uses a hybrid recommendation approach:
+
+1. **Content Analysis**: Extracts audio features (danceability, energy, etc.) from your top tracks
+2. **Text Processing**: Analyzes artist names, genres, and track titles using TF-IDF
+3. **Clustering**: Groups similar songs using K-Means clustering
+4. **Similarity Matching**: Finds the most similar songs using cosine similarity
+5. **Genre Balancing**: Automatically adjusts recommendations based on your music preferences
+
+## Tech Stack 💻
+
+- **Frontend**: Streamlit
+- **Backend**: Python
+- **Spotify API**: spotipy library
+- **Machine Learning**:
+  - scikit-learn (NearestNeighbors, KMeans, TF-IDF)
+  - pandas/numpy for data processing
+- **Data**: Custom dataset with 100,000+ songs
+
+## Installation ⚙️
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/yourusername/spotify-recommender.git
+   cd spotify-recommender
+
+    Install dependencies:
+    bash
+
+pip install -r requirements.txt
+
+Set up Spotify API credentials:
+
+    Create an app at Spotify Developer Dashboard
+
+    Add client_id and client_secret to app.py
+
+Run the app:
+bash
+
+    streamlit run app.py
+
+File Structure 📂
 text
 
+spotify-recommender/
+├── app.py                # Main Streamlit application
+├── recommender.py        # Recommendation engine
+├── dataset.csv           # Music dataset (not included in repo)
+├── requirements.txt      # Python dependencies
+└── README.md             # This file
 
-2. Install dependencies:
+Dataset 🔢
 
-pip install streamlit spotipy scikit-learn pandas numpy
-text
+The system uses a custom dataset containing:
 
+    100,000+ songs
 
-3. Add your Spotify API credentials to app.py:
-```python
-client_id = "your_client_id"
-client_secret = "your_client_secret"
-redirect_uri = "your_redirect_uri"
+    Audio features (danceability, energy, etc.)
 
-    Run the app:
+    Track metadata (artist, album, genre)
 
-text
+    Popularity scores
 
-streamlit run app.py
+Note: Due to size, the dataset is not included in the repository.
+Customization 🎨
 
-How It Works
-
-    Log in with Spotify
-
-    The app fetches your top 10 tracks
-
-    The recommendation engine analyzes:
-
-        Audio features (danceability, energy, etc.)
-
-        Artist information
-
-        Genre characteristics
-
-    Suggests similar songs from the dataset
-
-Files
-
-    app.py - Main application (Streamlit)
-
-    recommender.py - Recommendation engine
-
-    dataset.csv - Song database
-
-Configuration
-
-Adjust recommendation parameters in recommender.py:
+You can adjust the recommendation parameters in recommender.py:
 python
 
-# Weight adjustments
-df['valence'] *= 1.5  # Mood importance
-df['energy'] *= 1.2   # Energy importance
+# Change these values to tweak recommendations
+df['valence'] *= 1.5      # How much to weight mood
+df['energy'] *= 1.2       # How much to weight energy
+df['popularity'] *= 1.2   # How much to weight popularity
+k_j_limit = 2             # Max K/J-pop recommendations for non-fans
 
-# Genre limits
-k_j_limit = 2  # Max K/J-pop recommendations
+Live Demo 🌐
 
-Notes
+Try the app live at: Streamlit Share
+Limitations ⚠️
 
-    Requires Spotify Premium for audio previews
+    Requires Spotify Premium for song previews
 
-    Dataset not included (too large for GitHub)
+    Recommendations are based on a static dataset
 
-    New songs may not be in recommendations
+    New releases may not be included
 
-License
+Future Improvements 🚧
 
-MIT License
+    Add playlist generation
 
+    Incorporate real-time Spotify data
 
-Just copy everything between (and including) the ``` marks and paste it directly into your README.md file. All formatting will be preserved.
+    Add collaborative filtering
+
+    Improve UI with more visualizations
+
+Contributing 🤝
+
+Pull requests are welcome! For major changes, please open an issue first.
+License 📜
+
+MIT
