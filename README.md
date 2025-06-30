@@ -87,9 +87,6 @@ Notes
 License
 
 MIT License
-text
 
 
 Just copy everything between (and including) the ``` marks and paste it directly into your README.md file. All formatting will be preserved.
-
-New chat
