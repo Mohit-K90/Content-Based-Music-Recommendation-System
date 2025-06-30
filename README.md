@@ -1,28 +1,95 @@
-# Content-Based Music Recommendation System
+# Spotify Music Recommendation System
 
-This is a Streamlit app that uses a content-based filtering approach to recommend songs based on your top Spotify tracks.
+A content-based music recommender that suggests songs based on your Spotify listening history.
 
-##  Features
+## Features
+- View your top 10 Spotify tracks
+- Get personalized song recommendations
+- Play 30-second song previews
+- Secure Spotify login
+- Smart genre filtering
 
-- Authenticates using your Spotify account.
-- Fetches your top 10 most played tracks (medium term).
-- Analyzes your musical taste using features like genre, energy, valence, etc.
-- Recommends 10 songs from a local dataset that best match your preferences.
-- Displays album art, song previews, artist and album info.
-- Lets you logout with a single click.
+## Requirements
+- Python 3.7+
+- Spotify developer account
+- Spotify Premium (for audio previews)
 
-##  How It Works
+## Installation
+1. Clone this repository:
 
-1. **TF-IDF Vectorization** is applied on text fields like genre and artist names.
-2. **Numerical features** like energy, valence, popularity are scaled and weighted.
-3. A **user preference vector** is built from your top tracks.
-4. **Cosine similarity** is used to rank all songs in the dataset against this vector.
-5. Songs with similar names, already liked, or in Japanese genres (J-Pop, J-Rock) are filtered out.
+git clone https://github.com/yourusername/spotify-recommender.git
+cd spotify-recommender
+text
 
-## 🛠️ Setup
 
-### 1. Clone the Repository
+2. Install dependencies:
 
-```bash
-git clone https://github.com/yourusername/music-recommender
-cd music-recommender
+pip install streamlit spotipy scikit-learn pandas numpy
+text
+
+
+3. Add your Spotify API credentials to app.py:
+```python
+client_id = "your_client_id"
+client_secret = "your_client_secret"
+redirect_uri = "your_redirect_uri"
+
+    Run the app:
+
+text
+
+streamlit run app.py
+
+How It Works
+
+    Log in with Spotify
+
+    The app fetches your top 10 tracks
+
+    The recommendation engine analyzes:
+
+        Audio features (danceability, energy, etc.)
+
+        Artist information
+
+        Genre characteristics
+
+    Suggests similar songs from the dataset
+
+Files
+
+    app.py - Main application (Streamlit)
+
+    recommender.py - Recommendation engine
+
+    dataset.csv - Song database
+
+Configuration
+
+Adjust recommendation parameters in recommender.py:
+python
+
+# Weight adjustments
+df['valence'] *= 1.5  # Mood importance
+df['energy'] *= 1.2   # Energy importance
+
+# Genre limits
+k_j_limit = 2  # Max K/J-pop recommendations
+
+Notes
+
+    Requires Spotify Premium for audio previews
+
+    Dataset not included (too large for GitHub)
+
+    New songs may not be in recommendations
+
+License
+
+MIT License
+text
+
+
+Just copy everything between (and including) the ``` marks and paste it directly into your README.md file. All formatting will be preserved.
+
+New chat
